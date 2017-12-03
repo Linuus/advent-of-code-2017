@@ -1,22 +1,22 @@
-defmodule AdventOfCode.Day01 do
+defmodule AdventOfCode.Day01.Part01 do
   def run do
-    IO.puts "Inverse Captcha: #{solve()}"
+    IO.puts "Part 1: #{solve()}"
   end
 
-  def solve do
+  defp solve do
     input()
     |> String.codepoints()
     |> add_first_last()
     |> sum_if_adjacent(0)
   end
 
-  def sum_if_adjacent([_], sum), do: sum
-  def sum_if_adjacent([a, a | rest] = list, sum) do
+  defp sum_if_adjacent([_], sum), do: sum
+  defp sum_if_adjacent([a, a | rest], sum) do
     {int, ""} = Integer.parse(a)
     [a | rest]
     |> sum_if_adjacent(sum + int)
   end
-  def sum_if_adjacent([a, b | rest] = list, sum) do
+  defp sum_if_adjacent([_a, b | rest], sum) do
     [b | rest]
     |> sum_if_adjacent(sum)
   end
@@ -27,8 +27,6 @@ defmodule AdventOfCode.Day01 do
   end
 
   defp input do
-    "lib/inputs/day1_0.txt" |> File.read!() |> String.strip()
+    "lib/inputs/day1_0.txt" |> File.read!() |> String.trim()
   end
 end
-
-AdventOfCode.Day01.run()
