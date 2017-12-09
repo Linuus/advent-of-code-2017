@@ -4,4 +4,9 @@ defmodule AdventOfCode do
     AdventOfCode.Day01.Part01.run()
     AdventOfCode.Day01.Part02.run()
   end
+
+  def day02 do
+    IO.puts "-- Day 02 --"
+    AdventOfCode.Day02.Part01.run()
+  end
 end
