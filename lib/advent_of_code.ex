@@ -8,5 +8,6 @@ defmodule AdventOfCode do
   def day02 do
     IO.puts "-- Day 02 --"
     AdventOfCode.Day02.Part01.run()
+    AdventOfCode.Day02.Part02.run()
   end
 end
